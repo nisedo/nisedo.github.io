@@ -2,3 +2,12 @@ title: nisedo's blog
 description: nisedo's blog
 baseurl: ""
 url: "https://nisedo.github.io"
+theme: minima
+
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+permalink: /:year/:month/:day/:title/
