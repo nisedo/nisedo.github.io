@@ -2,6 +2,12 @@ title: nisedo's blog
 description: nisedo's blog
 baseurl: ""
 url: "https://nisedo.github.io"
-remote_theme: pages-themes/hacker@v0.2.0
+theme: minima
+
+markdown: kramdown
+highlighter: rouge
 plugins:
-  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-sitemap
+
+permalink: /:year/:month/:day/:title/
