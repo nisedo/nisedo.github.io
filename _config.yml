@@ -2,4 +2,7 @@ title: nisedo's blog
 description: nisedo's blog
 baseurl: ""
 url: "https://nisedo.github.io"
+remote_theme: pages-themes/hacker@v0.2.0
+plugins:
+  - jekyll-remote-theme
 theme: jekyll-theme-hacker
