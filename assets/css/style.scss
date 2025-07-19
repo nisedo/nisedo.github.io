@@ -1,0 +1,112 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+header {
+  text-align: center !important;
+}
+
+header h1::before {
+  display: none !important;
+}
+
+#a-title:hover h1 {
+  color: #666666 !important;
+}
+
+.title-icon {
+  height: 32px !important;
+  width: 32px !important;
+  margin-right: 10px !important;
+  vertical-align: middle !important;
+}
+
+nav {
+  text-align: center !important;
+}
+
+nav a {
+  text-decoration: none !important;
+}
+
+nav a:hover {
+  color: #666666 !important;
+  text-decoration: none !important;
+}
+
+nav a:not(:last-child)::after {
+  content: " | ";
+  color: #b3e851;
+  margin: 0 5px;
+}
+
+/* Remove underlines from all links */
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: #666666 !important;
+  text-decoration: none !important;
+}
+
+/* Table styling for markdown tables - force override theme styles */
+#main_content table,
+section table,
+.container table,
+table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin: 20px 0 !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  display: table !important;
+  border-spacing: 0 !important;
+}
+
+#main_content table th,
+#main_content table td,
+section table th,
+section table td,
+.container table th,
+.container table td,
+table th,
+table td {
+  border: 1px solid #444 !important;
+  padding: 12px 15px !important;
+  text-align: left !important;
+  color: #ffffff !important;
+  display: table-cell !important;
+  vertical-align: top !important;
+}
+
+#main_content table th,
+section table th,
+.container table th,
+table th {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  font-weight: bold !important;
+}
+
+#main_content table tr:nth-child(even),
+section table tr:nth-child(even),
+.container table tr:nth-child(even),
+table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+#main_content table tr:hover,
+section table tr:hover,
+.container table tr:hover,
+table tr:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Green bullet points only */
+ul li::marker {
+  color: #b3e851 !important;
+}
+
+ul li {
+  list-style: disc !important;
+}
