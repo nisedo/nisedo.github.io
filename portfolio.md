@@ -5,18 +5,6 @@ title: Portfolio
 
 # Portfolio
 
-I have experience auditing the following technologies:
-
-![Solidity](https://img.shields.io/badge/Solidity-363636?style=flat&logo=solidity&logoColor=white)
-![Yul](https://img.shields.io/badge/Yul-3c3c3c?style=flat&logo=ethereum&logoColor=white)
-![Huff](https://img.shields.io/badge/Huff-000000?style=flat&logo=ethereum&logoColor=white)
-![Vyper](https://img.shields.io/badge/Vyper-4C5C5C?style=flat&logo=python&logoColor=white)
-![Cairo](https://img.shields.io/badge/Cairo-5E2A8C?style=flat&logo=cairo&logoColor=white)
-![EVM](https://img.shields.io/badge/EVM-5B5F97?style=flat&logo=ethereum&logoColor=white)
-![Rust](https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white)
-![Solana](https://img.shields.io/badge/Solana-08B2E5?style=flat&logo=solana&logoColor=white)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)
-
 # Audits 🕵️‍♂️
 
 | Project | Report | Audit Type | Ranking |
@@ -53,10 +41,10 @@ I have experience auditing the following technologies:
 
 | Name | Completed |
 |----------|---------------|
-| [Ethernaut](https://ethernaut.openzeppelin.com/) | 30 / 33 |
+| [HACK THE TON](https://www.hacktheton.com/) | 6 / 20|
 | [ONLYPWNER](https://onlypwner.xyz/) | 9 / 16 |
 | [Damn Vulnerable DeFi V2](https://github.com/theredguild/damn-vulnerable-defi/tree/v2-dev) | 12 / 12 |
-| [HACK THE TON](https://www.hacktheton.com/) | 6 / 20|
+| [Ethernaut](https://ethernaut.openzeppelin.com/) | 30 / 33 |
 
 ---
 
@@ -64,12 +52,12 @@ I have experience auditing the following technologies:
 
 | Number | Score | Ranking |
 |-----------|-----------|-------------|
-| RACE 25 | 7.2 / 8 | 13 / 146 |
-| RACE 27 | 4.7 / 8 | 14 / 140 |
-| RACE 30 | 6 / 8 | 12 / 140 |
-| RACE 31 | 6 / 8 | 🥈 / 83 |
-| RACE 34 | 5.8 / 8 | 🥈 / 88 |
 | RACE 38 | 6 / 8 | 🥉 / 47 |
+| RACE 34 | 5.8 / 8 | 🥈 / 88 |
+| RACE 31 | 6 / 8 | 🥈 / 83 |
+| RACE 30 | 6 / 8 | 12 / 140 |
+| RACE 27 | 4.7 / 8 | 14 / 140 |
+| RACE 25 | 7.2 / 8 | 13 / 146 |
 
 ---
 
