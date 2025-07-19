@@ -63,7 +63,7 @@ title: Portfolio
 
 # Other Contributions ⭐️
 
-- Speaker at EthCC[8] 2025: [How to Become a Smart Contract Auditor](https://www.youtube.com/watch?v=BdSiiBIHOP0)
+- Speaker at [EthCC[8]](https://ethcc.io/) 2025: [How to Become a Smart Contract Auditor](https://www.youtube.com/watch?v=BdSiiBIHOP0)
 
 - Founded [Soliditors](https://linktr.ee/soliditors), the premier French-speaking Web3 security community (170+ members) and podcast:  
   - Hosted [10 podcast episodes](https://www.youtube.com/@soliditors)
