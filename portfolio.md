@@ -63,7 +63,10 @@ title: Portfolio
 
 # Other Contributions ⭐️
 
-- Speaker at [EthCC[8]](https://ethcc.io/) 2025: [How to Become a Smart Contract Auditor](https://www.youtube.com/watch?v=BdSiiBIHOP0)
+- Speaker at [DeFi Security Summit](https://defisecuritysummit.org/) ([Devconnect Argentina](https://devconnect.org/)) Nov 2026: [Beyond “Just Read the Code”: Auditing Strategies & Tactics](https://www.youtube.com/watch?v=yAtZz1eHZe8)
+- Speaker at [EthCC[8]](https://ethcc.io/) June 2025: [How to Become a Smart Contract Auditor](https://www.youtube.com/watch?v=BdSiiBIHOP0)
+
+- Moderator of [DSS Webinar | Automation Security with Brahma, CoW Swap & Mimic (Aug 2025)](https://www.youtube.com/live/OGTVuTMXu-U)
 
 - Founded [Soliditors](https://linktr.ee/soliditors), the premier French-speaking Web3 security community (170+ members) and podcast:  
   - Hosted [10 podcast episodes](https://www.youtube.com/@soliditors)
