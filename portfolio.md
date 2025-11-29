@@ -25,11 +25,11 @@ title: Portfolio
 | [Reserve Folio Solidity Contracts](https://reserve.org/)         | TBD    | Trail of Bits |
 | [Offchain Reward Distributor Fixes](https://arbitrum.io/)        | [Report](https://docs.arbitrum.io/assets/files/2025-04-offchainlabs-reward-distributor-fixes-securityreview-95acad5683bf61562ac3cedea313e749.pdf) | Trail of Bits |
 | [TAC EVM Enabler](https://tac.build/)                            | TBD    | Trail of Bits |
-| [TapiocaDAO](https://www.tapioca.xyz/)                 | [Report](https://github.com/pashov/audits/blob/master/team/pdf/TapiocaDAO-security-review.pdf)                                                                                                                               | Team               |
-| [Ambit Finance](https://ambit.finance/)                | [Report](https://docs.ambit.finance/audits/0xweiss-feb24.pdf)                                                                                                                                                                | Team               |
+| [TapiocaDAO](https://www.tapioca.xyz/)                 | [Report](https://github.com/pashov/audits/blob/master/team/pdf/TapiocaDAO-security-review.pdf)                                                                                                                               | [Pashov Audit Group](https://x.com/PashovAuditGrp)               |
+| [Ambit Finance](https://ambit.finance/)                | [Report](https://docs.ambit.finance/audits/0xweiss-feb24.pdf)                                                                                                                                                                | [OxWeiss](https://x.com/0xWeisss) & [0xkato](https://x.com/0xkato) & [nisedo](https://x.com/nisedo_)                |
 | [Frak Swap Pool](https://github.com/frak-id/swap-pool) | [Report](https://github.com/frak-id/swap-pool)                                                                                                                                                                               | Solo               |
-| [Liquify](https://liquify.ventures/)                   | [Report](https://github.com/bailsec/BailSec/blob/main/Bailsec%20-%20Liquify%20-%20Final%20Report.pdf)                                                                                                                        | Solo               |
-| [Enzym](https://linktr.ee/enzymlive)                   | [Report](https://github.com/zigtur/zigtur/blob/main/reports/Enzym-Vesting-Audit_V1.2.pdf)                                                                                                                                    | Duo                |
+| [Liquify](https://liquify.ventures/)                   | [Report](https://github.com/bailsec/BailSec/blob/main/Bailsec%20-%20Liquify%20-%20Final%20Report.pdf)                                                                                                                        | [Bailsec](https://x.com/bailsecurity)               |
+| [Enzym](https://linktr.ee/enzymlive)                   | [Report](https://github.com/zigtur/zigtur/blob/main/reports/Enzym-Vesting-Audit_V1.2.pdf)                                                                                                                                    | [Zigtur](https://x.com/zigtur) & [nisedo](https://x.com/nisedo_)                 |
 
 ## Audit Contests 🏆
 
@@ -74,22 +74,14 @@ title: Portfolio
 
 - Speaker at [DeFi Security Summit](https://defisecuritysummit.org/) ([Devconnect Argentina](https://devconnect.org/)): [Beyond “Just Read the Code”: Auditing Strategies & Tactics](https://www.youtube.com/watch?v=yAtZz1eHZe8), November 2026
 - Speaker at [EthCC[8]](https://ethcc.io/): [How to Become a Smart Contract Auditor](https://www.youtube.com/watch?v=BdSiiBIHOP0), June 2025
-
 - Moderator of [DSS Webinar | Automation Security with Brahma, CoW Swap & Mimic](https://www.youtube.com/live/OGTVuTMXu-U), August 2025
-
 - Founded [Soliditors](https://linktr.ee/soliditors), the premier French-speaking Web3 security community (170+ members) and podcast:
-
   - Hosted [10 podcast episodes](https://www.youtube.com/@soliditors)
   - Recorded [2 online meetups](https://www.youtube.com/@soliditors)
   - Co-organized 2 in-person events with [iExec](https://x.com/iEx_ec/status/1765066177595011294) and [Ethereum France](https://youtu.be/ryxmjG4fvs8?si=4tEdAbT1YZNMRGyA)
   - [Sponsored](https://x.com/soliditors/status/1770911001354887655?s=20) the [Web3 Security Summit](https://europe.forum-incyber.com/web3-security-summit/) by [Forum InCyber](https://europe.forum-incyber.com/)
-
-- Compiled a document referencing all audit contests that are non-Solidity-focused: [**Non-Solidity Audit Contests**](https://meowing-earth-cff.notion.site/Non-Solidity-Audit-Contests-91793eda7a1d45738c394eb9375114b4?pvs=74)
-
 - Achieved 🥉 / 16 in the Slither workshop organized by Trail of Bits and Secureum
-
 - Contributed to a technical article providing insights into fuzz testing and improving smart contract security: **[Smart Contract Fuzz Tests Using Foundry](https://www.cyfrin.io/blog/smart-contract-fuzz-testing-using-foundry)**
-
 - Invited as a speaker on a [Cyfrin](https://x.com/CyfrinAudits) podcast with [Pashov](https://x.com/pashovkrum), [bytes032](https://x.com/bytes032), and [JulietteTech](https://x.com/_juliettech): **[Protocols Need Better Security, Best Practices, and Processes](https://x.com/CyfrinAudits/status/1752696266742534479)**
-
+- Compiled a document referencing all audit contests that are non-Solidity-focused: [**Non-Solidity Audit Contests**](https://meowing-earth-cff.notion.site/Non-Solidity-Audit-Contests-91793eda7a1d45738c394eb9375114b4?pvs=74)
 - Graduated from **[Encode Expert Solidity Bootcamp](https://www.encode.club/expert-solidity-bootcamp)**
