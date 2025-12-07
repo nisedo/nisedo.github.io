@@ -102,9 +102,14 @@ table tr:hover {
   background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Override theme green colors with blue */
+/* Override theme green colors */
 header {
-  border-bottom: 1px dashed #CCCCCC !important;
+  border-bottom: none !important;
+  background: transparent !important;
+}
+
+body {
+  background: #1a1a1a !important;
 }
 
 header h1 {
@@ -167,4 +172,20 @@ ul li::marker {
 
 ul li {
   list-style: disc !important;
+}
+
+/* Social links */
+.social-links {
+  margin-top: 1rem !important;
+  text-align: center !important;
+}
+
+.social-links a {
+  color: #CCCCCC !important;
+  margin: 0 0.5rem !important;
+  transition: color 0.2s ease !important;
+}
+
+.social-links a:hover {
+  color: #666666 !important;
 }
