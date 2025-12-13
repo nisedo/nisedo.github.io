@@ -4,7 +4,7 @@ layout: default
 
 # Portfolio
 
-## Private Audits 🕵️‍♂️
+## Audits 🕵️‍♂️
 
 | Project                                                             | Report                                                                                                                                                                                                                       | Date     | Audit Type                                                                                           |
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
@@ -30,51 +30,13 @@ layout: default
 | [TapiocaDAO](https://www.tapioca.xyz/)                              | [Report](https://github.com/pashov/audits/blob/master/team/pdf/TapiocaDAO-security-review.pdf)                                                                                                                               | Nov 2023 | [Pashov Audit Group](https://x.com/PashovAuditGrp)                                                   |
 | [Frak Swap Pool](https://github.com/frak-id/swap-pool)              | [Report](https://github.com/frak-id/swap-pool)                                                                                                                                                                               | TBD      | Solo                                                                                                 |
 
-## Audit Contests 🏆
-
-| Project                                                                             | Report                                                                          | Date     | Type | Ranking |
-| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -------- | ---- | ------- |
-| [vVv Launchpad](https://vvv.net/launchpad)                                          | [Report](https://audits.sherlock.xyz/contests/647)                              | Nov 2024 | Solo | 🥇      |
-| [Starknet Staking](https://www.starknet.io/)                                        | [Report](https://codehawks.cyfrin.io/c/2024-09-starknet-staking)                | Sep 2024 | Solo | 12th    |
-| [TempleGold](https://templedao.link/)                                               | [Report](https://codehawks.cyfrin.io/c/2024-07-templegold)                      | Jul 2024 | Solo | 12th    |
-| [Arrakis](https://audits.sherlock.xyz/contests/195)                                 | [Report](https://audits.sherlock.xyz/contests/195)                              | May 2024 | Duo  | 🥉      |
-| [Zivoe](https://audits.sherlock.xyz/contests/280)                                   | [Report](https://audits.sherlock.xyz/contests/280)                              | Apr 2024 | Duo  | 🥇      |
-| [Tapioca](https://audits.sherlock.xyz/contests/170)                                 | [Report](https://audits.sherlock.xyz/contests/170)                              | Mar 2024 | Duo  | 🥈      |
-| [Mento](https://audits.sherlock.xyz/contests/187)                                   | [Report](https://audits.sherlock.xyz/contests/187)                              | Mar 2024 | Duo  | 🥈      |
-| [EigenLayer](https://cantina.xyz/competitions/4b6f08a7-e830-4499-9977-08e2c3b32068) | [Report](https://cantina.xyz/competitions/4b6f08a7-e830-4499-9977-08e2c3b32068) | Feb 2024 | Duo  | 6th     |
-| [Blast](https://cantina.xyz/competitions/c90131b4-5c7c-4ebc-a1f3-8002d219bfe0)      | [Report](https://cantina.xyz/competitions/c90131b4-5c7c-4ebc-a1f3-8002d219bfe0) | Jan 2024 | Duo  | 20th    |
-| [Decent](https://code4rena.com/audits/2024-01-decent)                               | [Report](https://code4rena.com/audits/2024-01-decent)                           | Jan 2024 | Team | 7th     |
-| [POAP](https://poap.xyz/)                                                           | [Report](https://cantina.xyz/portfolio/784bde12-36c6-4469-8dfa-50b1ae830f9d)    | Dec 2023 | Solo | 4th     |
-| [Convergence](https://audits.sherlock.xyz/contests/126)                             | [Report](https://audits.sherlock.xyz/contests/126)                              | Nov 2023 | Duo  | 🥇      |
-| [The Wildcat Protocol](https://code4rena.com/audits/2023-10-the-wildcat-protocol)   | [Report](https://code4rena.com/reports/2023-10-wildcat)                         | Oct 2023 | Solo | 17th    |
-
-## CTFs 🚩
-
-| Name                                                                                       | Completed |
-| ------------------------------------------------------------------------------------------ | --------- |
-| [HACK THE TON](https://www.hacktheton.com/)                                                | 6 / 20    |
-| [ONLYPWNER](https://onlypwner.xyz/)                                                        | 10 / 16   |
-| [Damn Vulnerable DeFi v4](https://github.com/theredguild/damn-vulnerable-defi/tree/v4.1.0) | 16 / 18   |
-| [Damn Vulnerable DeFi v2](https://github.com/theredguild/damn-vulnerable-defi/tree/v2-dev) | 12 / 12   |
-| [Ethernaut](https://ethernaut.openzeppelin.com/)                                           | 30 / 33   |
-
-## Secureum RACEs 📝
-
-| Number  | Score   | Ranking  |
-| ------- | ------- | -------- |
-| RACE 38 | 6 / 8   | 🥉 / 47  |
-| RACE 34 | 5.8 / 8 | 🥈 / 88  |
-| RACE 31 | 6 / 8   | 🥈 / 83  |
-| RACE 30 | 6 / 8   | 12 / 140 |
-| RACE 27 | 4.7 / 8 | 14 / 140 |
-| RACE 25 | 7.2 / 8 | 13 / 146 |
-
 ## Other Contributions ⭐️
 
 - Speaker at [DeFi Security Summit](https://defisecuritysummit.org/) ([Devconnect Argentina](https://devconnect.org/)): [Beyond "Just Read the Code": Auditing Strategies & Tactics](https://www.youtube.com/watch?v=yAtZz1eHZe8), November 2026
+- Author of the [Rubber Duck Auditing](https://rubberduckauditing.github.io/) technique
+- Authored a blog post for Trail of Bits: [How Sui Move Rethinks Flash Loan Security](https://blog.trailofbits.com/2025/09/10/how-sui-move-rethinks-flash-loan-security/)
 - Speaker at [EthCC[8]](https://ethcc.io/): [How to Become a Smart Contract Auditor](https://www.youtube.com/watch?v=BdSiiBIHOP0), June 2025
 - Moderator of [DSS Webinar - Automation Security with Brahma, CoW Swap & Mimic](https://www.youtube.com/live/OGTVuTMXu-U), August 2025
-- Authored a blog post for Trail of Bits: [How Sui Move Rethinks Flash Loan Security](https://blog.trailofbits.com/2025/09/10/how-sui-move-rethinks-flash-loan-security/)
 - Founded [Soliditors](https://linktr.ee/soliditors), the premier French-speaking Web3 security community (170+ members) and podcast:
   - Hosted [10 podcast episodes](https://www.youtube.com/@soliditors)
   - Recorded [2 online meetups](https://www.youtube.com/@soliditors)
