@@ -35,7 +35,7 @@ layout: default
 - Spoke at [DeFi Security Summit](https://defisecuritysummit.org/) ([Devconnect Argentina](https://devconnect.org/)): [Beyond "Just Read the Code": Auditing Strategies & Tactics](https://www.youtube.com/watch?v=yAtZz1eHZe8), November 2025
 - Created the [Rubber Duck Auditing](https://rubberduckauditing.github.io/) technique
 - Authored [How Sui Move Rethinks Flash Loan Security](https://blog.trailofbits.com/2025/09/10/how-sui-move-rethinks-flash-loan-security/) for Trail of Bits
-- Developed the [Slither entry-points printer](https://x.com/nisedo_/status/1960289620199129089?s=20)
+- Developed the [Slither entry-points printer](https://x.com/nisedo_/status/1960289620199129089)
 - Spoke at [EthCC[8]](https://ethcc.io/): [How to Become a Smart Contract Auditor](https://www.youtube.com/watch?v=BdSiiBIHOP0), June 2025
 - Moderated [DSS Webinar - Automation Security with Brahma, CoW Swap & Mimic](https://www.youtube.com/live/OGTVuTMXu-U), August 2025
 - Founded [Soliditors](https://linktr.ee/soliditors), the premier French-speaking Web3 security community (170+ members) and podcast:
