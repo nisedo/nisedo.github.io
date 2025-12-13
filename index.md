@@ -38,7 +38,7 @@ layout: default
 - Developed the [Slither entry-points printer](https://x.com/nisedo_/status/1960289620199129089)
 - Spoke at [EthCC[8]](https://ethcc.io/): [How to Become a Smart Contract Auditor](https://www.youtube.com/watch?v=BdSiiBIHOP0), June 2025
 - Moderated [DSS Webinar - Automation Security with Brahma, CoW Swap & Mimic](https://www.youtube.com/live/OGTVuTMXu-U), August 2025
-- Founded [Soliditors](https://linktr.ee/soliditors), the premier French-speaking Web3 security community (170+ members) and podcast:
+- Founded [Soliditors](https://linktr.ee/soliditors), the premier French-speaking Web3 security community (200+ members) and podcast:
   - Hosted [10 podcast episodes](https://www.youtube.com/@soliditors)
   - Recorded [2 online meetups](https://www.youtube.com/@soliditors)
   - Co-organized 2 in-person events with [iExec](https://x.com/iEx_ec/status/1765066177595011294) and [Ethereum France](https://youtu.be/ryxmjG4fvs8?si=4tEdAbT1YZNMRGyA)
