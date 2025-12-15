@@ -1,0 +1,138 @@
+/* CSS Variables for theming */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #0066cc;
+  --link-hover-color: #004499;
+  --muted-color: #666666;
+}
+
+/* Dark mode - automatically applied based on system preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --link-color: #6db3f2;
+    --link-hover-color: #9ecbf7;
+    --muted-color: #999999;
+  }
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.6;
+  font-size: 16px;
+  padding: 0 20px;
+  margin: 60px auto;
+  max-width: 700px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Preamble / Header */
+#preamble {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 0.2em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 0;
+  color: var(--muted-color);
+}
+
+.subtitle a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.subtitle a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Content */
+.content {
+  margin-top: 2rem;
+}
+
+.intro {
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+p {
+  margin: 0.5rem 0 1rem 0;
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Lists */
+ul {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+li::marker {
+  color: var(--muted-color);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+    padding: 0 15px;
+    margin: 30px auto;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+}
