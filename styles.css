@@ -24,7 +24,9 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   line-height: 1.6;
   font-size: 16px;
   padding: 0 20px;
@@ -32,7 +34,9 @@ body {
   max-width: 700px;
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Preamble / Header */
@@ -118,6 +122,42 @@ li {
 
 li::marker {
   color: var(--muted-color);
+}
+
+/* Date styling */
+.date {
+  opacity: 0.5;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+thead {
+  border-bottom: 2px solid var(--muted-color);
+}
+
+th {
+  text-align: left;
+  padding: 0.75rem 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+td {
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--muted-color);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: rgba(128, 128, 128, 0.05);
 }
 
 /* Mobile responsiveness */
