@@ -127,9 +127,17 @@ body {
   margin-top: 1.25rem;
 }
 
-.intro {
+.intro-summary {
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
   text-align: center;
-  margin-top: 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+}
+
+.intro-summary strong {
+  font-weight: 650;
 }
 
 .contents-nav {
@@ -152,13 +160,11 @@ body {
   margin: 0;
   padding: 0;
   list-style: none;
-  counter-reset: contents;
 }
 
 .contents-nav li {
   margin: 0;
   border-top: 1px solid var(--line-color);
-  counter-increment: contents;
 }
 
 .contents-nav li:last-child {
@@ -166,9 +172,7 @@ body {
 }
 
 .contents-nav a {
-  display: grid;
-  grid-template-columns: 1.8rem 1fr;
-  gap: 0.35rem;
+  display: block;
   padding: 0.6rem 0;
   color: var(--muted-color);
   line-height: 1.35;
@@ -176,15 +180,8 @@ body {
   transition: color 0.15s ease;
 }
 
-.contents-nav a::before {
-  color: var(--muted-color);
-  content: counter(contents, decimal-leading-zero);
-  opacity: 0.65;
-}
-
 .contents-nav a:hover,
-.contents-nav a[aria-current="location"],
-.contents-nav a[aria-current="location"]::before {
+.contents-nav a[aria-current="location"] {
   color: var(--link-color);
   text-decoration: none;
 }
@@ -194,7 +191,7 @@ body {
 }
 
 .content > h1,
-.content > h2:not(.intro) {
+.content > h2 {
   scroll-margin-top: 1.5rem;
 }
 
@@ -313,6 +310,16 @@ tbody tr:hover {
 
   .contents-nav ol {
     grid-template-columns: 1fr;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
