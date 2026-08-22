@@ -127,17 +127,9 @@ body {
   margin-top: 1.25rem;
 }
 
-.intro-summary {
-  max-width: 650px;
-  margin: 0 auto 2.5rem;
+.intro {
   text-align: center;
-  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
-  line-height: 1.55;
-  letter-spacing: -0.015em;
-}
-
-.intro-summary strong {
-  font-weight: 650;
+  margin-top: 0;
 }
 
 .contents-nav {
@@ -191,7 +183,7 @@ body {
 }
 
 .content > h1,
-.content > h2 {
+.content > h2:not(.intro) {
   scroll-margin-top: 1.5rem;
 }
 
