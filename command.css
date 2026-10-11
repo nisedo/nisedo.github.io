@@ -97,6 +97,8 @@ body.is-page .command-area { position: fixed; width: min(850px, calc(100% - 48px
 @media (max-width: 600px), (hover: none) and (pointer: coarse) {
   /* iOS zooms small inputs on focus. Keep the input and block cursor in sync. */
   .command-input { font-size: 16px; }
+  body.is-page main { height: calc(100dvh - 170px); }
+  body.is-page .command-area { bottom: 16px; }
   /* Let the home header move with the page when the keyboard pans it. */
   body:not(.is-page) .site-socials { position: absolute; }
   body:not(.is-page) .home-brand { top: max(80px, calc(50% - 160px)); }
@@ -106,7 +108,8 @@ body.is-page .command-area { position: fixed; width: min(850px, calc(100% - 48px
   body.keyboard-open:not(.is-page) .site-socials { top: calc(var(--keyboard-top) + 28px); }
   body.keyboard-hide-brand .home-brand { display: none; }
   body.keyboard-open .scroll-hint { display: none; }
-  body.keyboard-open .keyboard-hints { position: absolute; right: 0; bottom: calc(100% + 8px); margin-top: 0; }
+  body.is-page .keyboard-hints, body.keyboard-open .keyboard-hints { position: absolute; right: 0; bottom: calc(100% + 8px); margin-top: 0; }
+  body.is-page .command-area:has(.command-menu:not([hidden]), .command-error:not([hidden])) .keyboard-hints,
   body.keyboard-open .command-area:has(.command-menu:not([hidden]), .command-error:not([hidden])) .keyboard-hints { visibility: hidden; }
   body.keyboard-compact .keyboard-hints { display: none; }
 }
