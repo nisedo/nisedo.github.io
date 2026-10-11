@@ -91,7 +91,7 @@ body.is-page .command-error, body.keyboard-open .command-error { top: auto; bott
 .inline-logo { width: 18px; height: 18px; object-fit: contain; vertical-align: -4px; margin-right: 6px; }
 .tool-logo { width: 28px; height: 28px; vertical-align: middle; margin-right: 6px; }
 body.is-page .home-brand { display: none; }
-body.is-page main { margin-top: 90px; height: calc(100dvh - 266px); overflow-y: auto; }
+body.is-page main { margin-top: 90px; height: calc(100dvh - 224px); overflow-y: auto; }
 body.is-page .page-content { margin-top: 40px; margin-bottom: 32px; }
 body.is-page .command-area { position: fixed; width: min(850px, calc(100% - 48px)); top: auto; bottom: 42px; }
 @media (max-width: 600px), (hover: none) and (pointer: coarse) {
