@@ -24,6 +24,7 @@
   const main = document.querySelector('main');
   const scrollHint = document.querySelector('.scroll-hint');
   const commandArea = document.querySelector('.command-area');
+  const commandBox = document.querySelector('.command-box');
   const mobileInput = window.matchMedia('(max-width: 600px), (hover: none) and (pointer: coarse)');
   const viewport = window.visualViewport;
   let matches = [];
@@ -53,8 +54,8 @@
     if (keyboardOpen) {
       // Absolute coordinates follow iOS viewport panning. Errors overlay the
       // space above the field, so the prompt stays put when a command fails.
-      const top = visibleTop + visibleHeight - commandArea.offsetHeight - 12;
-      commandArea.style.setProperty('--command-top', `${window.scrollY + Math.max(visibleTop + 12, top)}px`);
+      const top = visibleTop + visibleHeight - commandBox.offsetHeight;
+      commandArea.style.setProperty('--command-top', `${window.scrollY + Math.max(visibleTop, top)}px`);
       document.body.style.setProperty('--keyboard-top', `${window.scrollY + visibleTop}px`);
     } else {
       commandArea.style.removeProperty('--command-top');
@@ -239,7 +240,7 @@
       renderMenu();
     }
   });
-  document.querySelector('.command-box').addEventListener('submit', event => {
+  commandBox.addEventListener('submit', event => {
     event.preventDefault();
     openPage(!menu.hidden && matches.length ? matches[selected].command : input.value);
   });

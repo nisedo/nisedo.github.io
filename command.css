@@ -106,6 +106,8 @@ body.is-page .command-area { position: fixed; width: min(850px, calc(100% - 48px
   body.keyboard-open:not(.is-page) .site-socials { top: calc(var(--keyboard-top) + 28px); }
   body.keyboard-hide-brand .home-brand { display: none; }
   body.keyboard-open .scroll-hint { display: none; }
+  body.keyboard-open .keyboard-hints { position: absolute; right: 0; bottom: calc(100% + 8px); margin-top: 0; }
+  body.keyboard-open .command-area:has(.command-menu:not([hidden]), .command-error:not([hidden])) .keyboard-hints { visibility: hidden; }
   body.keyboard-compact .keyboard-hints { display: none; }
 }
 @media (max-width: 600px) {
