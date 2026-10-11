@@ -32,9 +32,6 @@ body:not(.is-page) .scroll-hint { display: none; }
 .command-box:focus-within { border-left-color: var(--accent); }
 .submit-command { margin-left: auto; border: 0; padding: 0 2px; color: var(--muted); background: transparent; font-size: 20px; line-height: 1; }
 .submit-command:hover { color: var(--accent); }
-.keyboard-hints { display: flex; justify-content: flex-end; gap: 20px; margin-top: 7px; color: var(--muted); font-size: 13px; }
-.keyboard-hints button { padding: 0; border: 0; background: none; color: inherit; }
-kbd { font: inherit; color: var(--ink); }
 .command-error { position: absolute; top: calc(100% + 2px); left: 0; right: 0; color: var(--error); margin: 0; max-height: 48px; overflow-y: auto; overflow-wrap: anywhere; }
 body.is-page .command-error, body.keyboard-open .command-error { top: auto; bottom: calc(100% + 10px); padding: 6px 8px; max-height: 72px; background: var(--bg); }
 .command-area:has(.command-error:not([hidden])) .scroll-hint { visibility: hidden; }
@@ -108,10 +105,6 @@ body.is-page .command-area { position: fixed; width: min(850px, calc(100% - 48px
   body.keyboard-open:not(.is-page) .site-socials { top: calc(var(--keyboard-top) + 28px); }
   body.keyboard-hide-brand .home-brand { display: none; }
   body.keyboard-open .scroll-hint { display: none; }
-  body.is-page .keyboard-hints, body.keyboard-open .keyboard-hints { position: absolute; right: 0; bottom: calc(100% + 8px); margin-top: 0; }
-  body.is-page .command-area:has(.command-menu:not([hidden]), .command-error:not([hidden])) .keyboard-hints,
-  body.keyboard-open .command-area:has(.command-menu:not([hidden]), .command-error:not([hidden])) .keyboard-hints { visibility: hidden; }
-  body.keyboard-compact .keyboard-hints { display: none; }
 }
 @media (max-width: 600px) {
   .brand-identity { gap: 14px; }

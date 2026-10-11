@@ -49,7 +49,6 @@
       (!viewport || Math.abs(viewport.scale - 1) < 0.01) &&
       document.documentElement.clientHeight - visibleHeight > 100;
     document.body.classList.toggle('keyboard-open', keyboardOpen);
-    document.body.classList.toggle('keyboard-compact', keyboardOpen && visibleHeight < 240);
     document.body.classList.toggle('keyboard-hide-brand', keyboardOpen && visibleHeight < 320);
     if (keyboardOpen) {
       // Absolute coordinates follow iOS viewport panning. Errors overlay the
@@ -116,6 +115,12 @@
 
   function openPage(command) {
     const normalized = command.trim().toLowerCase();
+    if (normalized === '/command' || normalized === '/commands') {
+      input.value = '';
+      selected = 0;
+      renderMenu();
+      return;
+    }
     const canonical = aliases[normalized] || normalized;
     const page = commands.find(page => page.command === canonical);
     if (!page) {
@@ -145,7 +150,6 @@
     updateCaret();
     const query = input.value.trim().toLowerCase();
     error.hidden = true;
-    if (!query) return closeMenu();
     matches = commands.filter(page => page.command !== currentCommand &&
       (page.command.startsWith(query) || page.command === aliases[query]));
     selected = Math.min(selected, Math.max(0, matches.length - 1));
@@ -213,6 +217,12 @@
   });
 
   input.addEventListener('input', () => { selected = 0; renderMenu(); });
+  commandBox.addEventListener('click', event => {
+    if (event.target.closest('.submit-command')) return;
+    input.focus({ preventScroll: true });
+    selected = 0;
+    renderMenu();
+  });
   ['keyup', 'click', 'select', 'scroll', 'focus', 'blur'].forEach(event => {
     input.addEventListener(event, updateCaret);
   });
@@ -224,7 +234,7 @@
   mobileInput.addEventListener('change', scheduleCommandLayout);
   // A tap must select the option before blur closes the keyboard and moves it.
   commandArea.addEventListener('pointerdown', event => {
-    if (event.target.closest('.command-option, .submit-command, #show-commands')) event.preventDefault();
+    if (event.target.closest('.command-option, .submit-command')) event.preventDefault();
   });
   input.addEventListener('keydown', event => {
     if (event.key === 'Escape') { closeMenu(); return; }
@@ -243,9 +253,6 @@
   commandBox.addEventListener('submit', event => {
     event.preventDefault();
     openPage(!menu.hidden && matches.length ? matches[selected].command : input.value);
-  });
-  document.querySelector('#show-commands').addEventListener('click', () => {
-    input.value = '/'; input.focus({ preventScroll: true }); selected = 0; renderMenu();
   });
   document.addEventListener('keydown', event => {
     if (event.key !== '/' || event.metaKey || event.ctrlKey || event.altKey || /INPUT|TEXTAREA/.test(document.activeElement.tagName)) return;

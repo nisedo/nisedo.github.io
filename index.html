@@ -11,8 +11,8 @@
 
     <title>nisedo</title>
 
-    <link rel="stylesheet" href="command.css?v=auditron-logo-spacing" />
-    <script src="command.js?v=keyboard-prompt-docking" defer></script>
+    <link rel="stylesheet" href="command.css?v=prompt-click-menu" />
+    <script src="command.js?v=prompt-click-menu" defer></script>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -276,13 +276,12 @@
         <form class="command-box" autocomplete="off">
           <label class="sr-only" for="command">Navigate with a slash command</label>
           <div class="command-input">
-            <input id="command" type="text" placeholder="Type a command... /about" spellcheck="false" autocapitalize="off" aria-controls="commands" aria-expanded="false" role="combobox" aria-autocomplete="list">
+            <input id="command" type="text" placeholder="Type a command... /command" spellcheck="false" autocapitalize="off" aria-controls="commands" aria-expanded="false" role="combobox" aria-autocomplete="list">
             <span class="block-caret" aria-hidden="true">T</span>
           </div>
           <button class="submit-command" type="submit" aria-label="Run command">↵</button>
         </form>
         <div id="commands" class="command-menu" role="listbox" aria-label="Commands" hidden></div>
-        <div class="keyboard-hints"><button type="button" id="show-commands"><kbd>/</kbd> commands</button></div>
         <p class="command-error" role="status" hidden></p>
       </div>
     </main>
