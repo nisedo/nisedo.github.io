@@ -31,6 +31,9 @@
   let selected = 0;
   let currentCommand = '/home';
   let layoutFrame = 0;
+  let keyboardTimer = 0;
+  let keyboardReferenceHeight = viewport?.height || window.innerHeight;
+  let keyboardReferenceWidth = window.innerWidth;
 
   function keepSelectedVisible() {
     const option = menu.children[selected];
@@ -45,9 +48,14 @@
   function updateCommandLayout() {
     const visibleTop = viewport?.offsetTop || 0;
     const visibleHeight = viewport?.height || window.innerHeight;
-    const keyboardOpen = mobileInput.matches && document.activeElement === input &&
+    const inputFocused = document.activeElement === input;
+    if (!inputFocused || window.innerWidth !== keyboardReferenceWidth) {
+      keyboardReferenceHeight = Math.max(visibleHeight, window.innerHeight, document.documentElement.clientHeight);
+      keyboardReferenceWidth = window.innerWidth;
+    }
+    const keyboardOpen = mobileInput.matches && inputFocused &&
       (!viewport || Math.abs(viewport.scale - 1) < 0.01) &&
-      document.documentElement.clientHeight - visibleHeight > 100;
+      Math.max(keyboardReferenceHeight, window.innerHeight, document.documentElement.clientHeight) - visibleHeight > 100;
     document.body.classList.toggle('keyboard-open', keyboardOpen);
     document.body.classList.toggle('keyboard-hide-brand', keyboardOpen && visibleHeight < 320);
     if (keyboardOpen) {
@@ -71,6 +79,23 @@
       layoutFrame = 0;
       updateCommandLayout();
     });
+  }
+
+  function trackKeyboardViewport() {
+    clearInterval(keyboardTimer);
+    keyboardTimer = 0;
+    if (!mobileInput.matches || document.activeElement !== input) return;
+    let previousMetrics = '';
+    // WebKit can update keyboard metrics after its focus/resize events.
+    // Poll while focused, but only relayout when those measurements change.
+    keyboardTimer = setInterval(() => {
+      if (document.hidden) return;
+      const metrics = [viewport?.height, viewport?.offsetTop, viewport?.scale,
+        window.innerHeight, window.innerWidth, window.scrollY, document.documentElement.clientHeight].join(':');
+      if (metrics === previousMetrics) return;
+      previousMetrics = metrics;
+      scheduleCommandLayout();
+    }, 100);
   }
 
   function updateScrollHint() {
@@ -226,12 +251,18 @@
   ['keyup', 'click', 'select', 'scroll', 'focus', 'blur'].forEach(event => {
     input.addEventListener(event, updateCaret);
   });
-  ['focus', 'blur'].forEach(event => input.addEventListener(event, scheduleCommandLayout));
+  ['focus', 'blur'].forEach(event => input.addEventListener(event, () => {
+    trackKeyboardViewport();
+    scheduleCommandLayout();
+  }));
   viewport?.addEventListener('resize', scheduleCommandLayout);
   viewport?.addEventListener('scroll', scheduleCommandLayout);
   window.addEventListener('resize', scheduleCommandLayout);
   window.addEventListener('scroll', scheduleCommandLayout, { passive: true });
-  mobileInput.addEventListener('change', scheduleCommandLayout);
+  mobileInput.addEventListener('change', () => {
+    trackKeyboardViewport();
+    scheduleCommandLayout();
+  });
   // A tap must select the option before blur closes the keyboard and moves it.
   commandArea.addEventListener('pointerdown', event => {
     if (event.target.closest('.command-option, .submit-command')) event.preventDefault();
