@@ -10,6 +10,12 @@
     { command: '/highlights', section: 'highlights', label: 'Highlights' },
     { command: '/home', section: null, label: 'Back to the start' },
   ];
+  const commands = [...pages,
+    { command: '/x', url: 'https://x.com/nisedo_', label: 'X profile ↗' },
+    { command: '/github', url: 'https://github.com/nisedo', label: 'GitHub profile ↗' },
+    { command: '/linkedin', url: 'https://linkedin.com/in/nisedo', label: 'LinkedIn profile ↗' },
+    { command: '/tob', url: 'https://www.trailofbits.com/', label: 'Trail of Bits website ↗' },
+  ];
   const aliases = { '/writing': '/writings', '/audit-portfolio': '/audits', '/bug-bounties': '/bounties', '/tools-open-source': '/tools', '/': '/home' };
   const input = document.querySelector('#command');
   const caret = document.querySelector('.block-caret');
@@ -63,11 +69,18 @@
   function openPage(command) {
     const normalized = command.trim().toLowerCase();
     const canonical = aliases[normalized] || normalized;
-    const page = pages.find(page => page.command === canonical);
+    const page = commands.find(page => page.command === canonical);
     if (!page) {
       closeMenu();
       error.textContent = `Unknown command: ${command}. Type / to see the commands.`;
       error.hidden = false;
+      return;
+    }
+    if (page.url) {
+      window.open(page.url, '_blank', 'noopener,noreferrer');
+      input.value = '';
+      error.hidden = true;
+      closeMenu();
       return;
     }
     if (page.command === currentCommand) {
@@ -85,7 +98,7 @@
     const query = input.value.trim().toLowerCase();
     error.hidden = true;
     if (!query) return closeMenu();
-    matches = pages.filter(page => page.command !== currentCommand &&
+    matches = commands.filter(page => page.command !== currentCommand &&
       (page.command.startsWith(query) || page.command === aliases[query]));
     selected = Math.min(selected, Math.max(0, matches.length - 1));
     menu.replaceChildren();
