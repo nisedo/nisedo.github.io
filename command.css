@@ -92,6 +92,10 @@ body.is-page .home-brand { display: none; }
 body.is-page main { margin-top: 90px; height: calc(100dvh - 266px); overflow-y: auto; }
 body.is-page .page-content { margin-top: 40px; margin-bottom: 32px; }
 body.is-page .command-area { position: fixed; width: min(850px, calc(100% - 48px)); top: auto; bottom: 42px; z-index: 4; }
+@media (max-width: 600px), (hover: none) and (pointer: coarse) {
+  /* iOS zooms small inputs on focus. Keep the input and block cursor in sync. */
+  .command-input { font-size: 16px; }
+}
 @media (max-width: 600px) {
   .home-brand { top: calc(50% - 160px); }
   .brand-identity { gap: 14px; }
