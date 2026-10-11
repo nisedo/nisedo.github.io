@@ -267,29 +267,33 @@
   commandArea.addEventListener('pointerdown', event => {
     if (event.target.closest('.command-option, .submit-command')) event.preventDefault();
   });
-  // WebKit can still rubber-band overflow lists despite overscroll-behavior.
-  // Scroll this menu directly so a drag always stops at its content boundaries.
-  let menuTouch = null;
-  menu.addEventListener('touchstart', event => {
-    const touch = event.touches.length === 1 ? event.touches[0] : null;
-    menuTouch = touch ? { id: touch.identifier, y: touch.clientY } : null;
-  }, { passive: true });
-  menu.addEventListener('touchmove', event => {
-    if (!menuTouch || event.touches.length !== 1) {
-      menuTouch = null;
-      return;
-    }
-    const touch = event.touches[0];
-    if (touch.identifier !== menuTouch.id) return;
-    const delta = menuTouch.y - touch.clientY;
-    menuTouch.y = touch.clientY;
-    if (!delta || !event.cancelable) return;
-    event.preventDefault();
-    const maximum = Math.max(0, menu.scrollHeight - menu.clientHeight);
-    menu.scrollTop = Math.max(0, Math.min(maximum, menu.scrollTop + delta));
-  }, { passive: false });
-  ['touchend', 'touchcancel'].forEach(event => {
-    menu.addEventListener(event, () => { menuTouch = null; }, { passive: true });
+  // WebKit rubber-bands overflow areas even when their content fits.
+  // Constrain each area's touch scrolling, without moving its parent as well.
+  [main, menu, error].forEach(scroller => {
+    let activeTouch = null;
+    scroller.addEventListener('touchstart', event => {
+      const ownsGesture = event.target.closest('main, .command-menu, .command-error') === scroller &&
+        !event.target.closest('input, textarea');
+      const touch = ownsGesture && event.touches.length === 1 ? event.touches[0] : null;
+      activeTouch = touch ? { id: touch.identifier, y: touch.clientY } : null;
+    }, { passive: true });
+    scroller.addEventListener('touchmove', event => {
+      if (!activeTouch || event.touches.length !== 1) {
+        activeTouch = null;
+        return;
+      }
+      const touch = event.touches[0];
+      if (touch.identifier !== activeTouch.id) return;
+      const delta = activeTouch.y - touch.clientY;
+      activeTouch.y = touch.clientY;
+      if (!delta || !event.cancelable) return;
+      event.preventDefault();
+      const maximum = Math.max(0, scroller.scrollHeight - scroller.clientHeight);
+      scroller.scrollTop = Math.max(0, Math.min(maximum, scroller.scrollTop + delta));
+    }, { passive: false });
+    ['touchend', 'touchcancel'].forEach(event => {
+      scroller.addEventListener(event, () => { activeTouch = null; }, { passive: true });
+    });
   });
   input.addEventListener('keydown', event => {
     if (event.key === 'Escape') { closeMenu(); return; }
