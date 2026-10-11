@@ -95,9 +95,12 @@ body.is-page .command-area { position: fixed; width: min(850px, calc(100% - 48px
 @media (max-width: 600px), (hover: none) and (pointer: coarse) {
   /* iOS zooms small inputs on focus. Keep the input and block cursor in sync. */
   .command-input { font-size: 16px; }
+  /* Let the home header move with the page when the keyboard pans it. */
+  body:not(.is-page) .site-socials { position: absolute; }
+  body:not(.is-page) .home-brand { top: max(80px, calc(50% - 160px)); }
+  body:not(.is-page) .command-area { top: max(248px, calc(50% + 8px)); }
 }
 @media (max-width: 600px) {
-  .home-brand { top: calc(50% - 160px); }
   .brand-identity { gap: 14px; }
   .portrait { width: 48px; height: 48px; }
   .wordmark { width: calc(41px * 33 / 7); height: 41px; }
