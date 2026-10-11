@@ -23,9 +23,55 @@
   const error = document.querySelector('.command-error');
   const main = document.querySelector('main');
   const scrollHint = document.querySelector('.scroll-hint');
+  const commandArea = document.querySelector('.command-area');
+  const mobileInput = window.matchMedia('(max-width: 600px), (hover: none) and (pointer: coarse)');
+  const viewport = window.visualViewport;
   let matches = [];
   let selected = 0;
   let currentCommand = '/home';
+  let layoutFrame = 0;
+
+  function keepSelectedVisible() {
+    const option = menu.children[selected];
+    if (!option || menu.hidden) return;
+    const top = option.offsetTop - 6;
+    const bottom = option.offsetTop + option.offsetHeight + 6;
+    // Scroll only the list, never the document or the browser's visual viewport.
+    if (top < menu.scrollTop) menu.scrollTop = Math.max(0, top);
+    else if (bottom > menu.scrollTop + menu.clientHeight) menu.scrollTop = bottom - menu.clientHeight;
+  }
+
+  function updateCommandLayout() {
+    const visibleTop = viewport?.offsetTop || 0;
+    const visibleHeight = viewport?.height || window.innerHeight;
+    const keyboardOpen = mobileInput.matches && document.activeElement === input &&
+      (!viewport || Math.abs(viewport.scale - 1) < 0.01) &&
+      document.documentElement.clientHeight - visibleHeight > 100;
+    document.body.classList.toggle('keyboard-open', keyboardOpen);
+    document.body.classList.toggle('keyboard-compact', keyboardOpen && visibleHeight < 240);
+    document.body.classList.toggle('keyboard-hide-brand', keyboardOpen && visibleHeight < 320);
+    if (keyboardOpen) {
+      // Absolute coordinates follow iOS viewport panning. Errors overlay the
+      // space above the field, so the prompt stays put when a command fails.
+      const top = visibleTop + visibleHeight - commandArea.offsetHeight - 12;
+      commandArea.style.setProperty('--command-top', `${window.scrollY + Math.max(visibleTop + 12, top)}px`);
+      document.body.style.setProperty('--keyboard-top', `${window.scrollY + visibleTop}px`);
+    } else {
+      commandArea.style.removeProperty('--command-top');
+      document.body.style.removeProperty('--keyboard-top');
+    }
+    const available = commandArea.getBoundingClientRect().top - visibleTop - 22;
+    menu.style.setProperty('--command-menu-height', `${Math.max(0, Math.min(360, available))}px`);
+    keepSelectedVisible();
+  }
+
+  function scheduleCommandLayout() {
+    if (layoutFrame) return;
+    layoutFrame = requestAnimationFrame(() => {
+      layoutFrame = 0;
+      updateCommandLayout();
+    });
+  }
 
   function updateScrollHint() {
     const section = document.querySelector('.content-section:not([hidden])');
@@ -64,6 +110,7 @@
     input.setAttribute('aria-expanded', 'false');
     input.removeAttribute('aria-activedescendant');
     updateCaret();
+    scheduleCommandLayout();
   }
 
   function openPage(command) {
@@ -121,7 +168,7 @@
     menu.hidden = false;
     input.setAttribute('aria-expanded', 'true');
     input.setAttribute('aria-activedescendant', `command-option-${selected}`);
-    menu.children[selected]?.scrollIntoView({ block: 'nearest' });
+    updateCommandLayout();
   }
 
   function renderPage() {
@@ -150,6 +197,7 @@
     if (section) document.querySelector(`[data-section="${section}"]`).focus({ preventScroll: true });
     else input.focus({ preventScroll: true });
     updateScrollHint();
+    updateCommandLayout();
   }
 
   main.addEventListener('scroll', updateScrollHint, { passive: true });
@@ -166,6 +214,16 @@
   input.addEventListener('input', () => { selected = 0; renderMenu(); });
   ['keyup', 'click', 'select', 'scroll', 'focus', 'blur'].forEach(event => {
     input.addEventListener(event, updateCaret);
+  });
+  ['focus', 'blur'].forEach(event => input.addEventListener(event, scheduleCommandLayout));
+  viewport?.addEventListener('resize', scheduleCommandLayout);
+  viewport?.addEventListener('scroll', scheduleCommandLayout);
+  window.addEventListener('resize', scheduleCommandLayout);
+  window.addEventListener('scroll', scheduleCommandLayout, { passive: true });
+  mobileInput.addEventListener('change', scheduleCommandLayout);
+  // A tap must select the option before blur closes the keyboard and moves it.
+  commandArea.addEventListener('pointerdown', event => {
+    if (event.target.closest('.command-option, .submit-command, #show-commands')) event.preventDefault();
   });
   input.addEventListener('keydown', event => {
     if (event.key === 'Escape') { closeMenu(); return; }
@@ -186,12 +244,12 @@
     openPage(!menu.hidden && matches.length ? matches[selected].command : input.value);
   });
   document.querySelector('#show-commands').addEventListener('click', () => {
-    input.value = '/'; input.focus(); selected = 0; renderMenu();
+    input.value = '/'; input.focus({ preventScroll: true }); selected = 0; renderMenu();
   });
   document.addEventListener('keydown', event => {
     if (event.key !== '/' || event.metaKey || event.ctrlKey || event.altKey || /INPUT|TEXTAREA/.test(document.activeElement.tagName)) return;
     event.preventDefault();
-    input.value = '/'; input.focus(); selected = 0; renderMenu();
+    input.value = '/'; input.focus({ preventScroll: true }); selected = 0; renderMenu();
   });
   document.addEventListener('click', event => {
     if (!event.target.closest('.command-area')) closeMenu();
