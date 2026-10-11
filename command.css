@@ -18,7 +18,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .home-brand h1 { margin: 0; line-height: 0; }
 .portrait { width: 66px; height: 66px; border-radius: 50%; }
 .wordmark { display: block; width: 264px; height: 56px; }
-.command-area { position: absolute; width: min(640px, calc(100% - 48px)); left: 50%; top: calc(50% + 8px); transform: translateX(-50%); }
+.command-area { position: absolute; width: min(640px, calc(100% - 48px)); left: 50%; top: calc(50% + 8px); transform: translateX(-50%); z-index: 6; }
 .scroll-hint { position: absolute; bottom: calc(100% + 12px); left: 50%; transform: translateX(-50%); padding: 2px 8px; border: 0; background: transparent; color: var(--muted); font-size: 12px; white-space: nowrap; }
 .scroll-hint:hover { color: var(--ink); }
 body:not(.is-page) .scroll-hint { display: none; }
@@ -91,7 +91,7 @@ kbd { font: inherit; color: var(--ink); }
 body.is-page .home-brand { display: none; }
 body.is-page main { margin-top: 90px; height: calc(100dvh - 266px); overflow-y: auto; }
 body.is-page .page-content { margin-top: 40px; margin-bottom: 32px; }
-body.is-page .command-area { position: fixed; width: min(850px, calc(100% - 48px)); top: auto; bottom: 42px; z-index: 4; }
+body.is-page .command-area { position: fixed; width: min(850px, calc(100% - 48px)); top: auto; bottom: 42px; }
 @media (max-width: 600px), (hover: none) and (pointer: coarse) {
   /* iOS zooms small inputs on focus. Keep the input and block cursor in sync. */
   .command-input { font-size: 16px; }
