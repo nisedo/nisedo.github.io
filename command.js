@@ -10,12 +10,7 @@
     { command: '/highlights', section: 'highlights', label: 'Highlights' },
     { command: '/home', section: null, label: 'Back to the start' },
   ];
-  const commands = [...pages,
-    { command: '/x', url: 'https://x.com/nisedo_', label: 'X profile ↗' },
-    { command: '/github', url: 'https://github.com/nisedo', label: 'GitHub profile ↗' },
-    { command: '/linkedin', url: 'https://linkedin.com/in/nisedo', label: 'LinkedIn profile ↗' },
-    { command: '/tob', url: 'https://www.trailofbits.com/', label: 'Trail of Bits website ↗' },
-  ];
+  const commands = pages;
   const aliases = { '/writing': '/writings', '/audit-portfolio': '/audits', '/bug-bounties': '/bounties', '/tools-open-source': '/tools', '/': '/home' };
   const input = document.querySelector('#command');
   const caret = document.querySelector('.block-caret');
