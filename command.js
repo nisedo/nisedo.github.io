@@ -6,8 +6,6 @@
     { command: '/talks', section: 'talks', label: 'Talks & podcasts' },
     { command: '/writings', section: 'writing', label: 'Articles & writing' },
     { command: '/tools', section: 'tools-open-source', label: 'Tools & open source' },
-    { command: '/community', section: 'community', label: 'Community' },
-    { command: '/highlights', section: 'highlights', label: 'Highlights' },
     { command: '/home', section: null, label: 'Back to the start' },
   ];
   const commands = pages;
