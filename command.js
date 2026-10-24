@@ -4,8 +4,8 @@
     { command: '/audits', section: 'audit-portfolio', label: 'Audit portfolio' },
     { command: '/bounties', section: 'bug-bounties', label: 'Bug bounties' },
     { command: '/talks', section: 'talks', label: 'Talks & podcasts' },
-    { command: '/writings', section: 'writing', label: 'Articles & writing' },
     { command: '/tools', section: 'tools-open-source', label: 'Tools & open source' },
+    { command: '/writings', section: 'writing', label: 'Articles & writing' },
     { command: '/home', section: null, label: 'Back to the start' },
   ];
   const commands = pages;
