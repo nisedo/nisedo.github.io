@@ -3,7 +3,7 @@
     { command: '/about', section: 'about', label: 'About me' },
     { command: '/audits', section: 'audit-portfolio', label: 'Audit portfolio' },
     { command: '/bounties', section: 'bug-bounties', label: 'Bug bounties' },
-    { command: '/talks', section: 'talks', label: 'Talks & podcasts' },
+    { command: '/talks', section: 'talks', label: 'Talks, podcasts & webinars' },
     { command: '/tools', section: 'tools-open-source', label: 'Tools & open source' },
     { command: '/writings', section: 'writing', label: 'Articles & writing' },
     { command: '/home', section: null, label: 'Back to the start' },
