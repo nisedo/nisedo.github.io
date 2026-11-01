@@ -47,7 +47,7 @@ body.is-page .command-error, body.keyboard-open .command-error { top: auto; bott
 .breadcrumb { color: var(--muted); }
 .site-socials { position: fixed; top: 36px; right: 32px; z-index: 5; }
 .social-links { display: flex; align-items: center; gap: 18px; }
-.social-icon { display: block; width: 21px; height: 21px; fill: var(--muted); }
+.social-icon { display: block; width: 23px; height: 23px; fill: var(--muted); }
 .social-links a:hover .social-icon { fill: var(--accent); }
 .page-content { width: min(850px, calc(100% - 48px)); margin: 130px auto 210px; }
 .content-section { outline: none; }
