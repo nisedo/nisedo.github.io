@@ -5,7 +5,8 @@ Publish native PDF exports containing only the visible slides. Keep speaker note
 ## Naming convention
 
 - PDF title metadata: `Talk title — Conference — YYYY-MM — Slides`
-- Filename: `talk-title-conference-yyyy-mm-slides.pdf` (lowercase ASCII, hyphen-separated)
+- Filename: `talk-title-conference-yyyy-mm-dd-slides.pdf` when the exact talk date is confirmed; otherwise `talk-title-conference-yyyy-mm-slides.pdf` (lowercase ASCII, hyphen-separated). Never infer the day from file creation or modification dates.
+- Dates displayed on the site and PDF title metadata stay at month precision (`YYYY-MM`).
 - Folder: `talks/talk-title/`
 
 Example:
