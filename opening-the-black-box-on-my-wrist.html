@@ -4,34 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#171818" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#181818" media="(prefers-color-scheme: dark)">
   <meta name="author" content="nisedo">
   <meta name="description" content="An evidence-backed investigation of the Apple Watch Series 11 hardware, trust boundaries, attack surface, and public security research.">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Opening the Apple Watch black box">
   <meta property="og:description" content="What I learned while investigating the Apple Watch Series 11.">
   <meta property="article:published_time" content="2026-07-18">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; style-src 'self' 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
   <title>Opening the Apple Watch black box | nisedo</title>
+  <link rel="stylesheet" href="theme.css?v=uniform-b-1">
   <style>
-  :root {
-    color-scheme: light;
-    --ink: #202124;
-    --muted: #5f6368;
-    --dim: #7b8087;
-    --paper: #fbfbfa;
-    --surface: #f3f3f1;
-    --surface-2: #ececea;
-    --line: #d7d8d5;
-    --accent: #315f8c;
-    --accent-hover: #23496e;
-    --accent-soft: #e6eef5;
-    --cyan: #316f73;
-    --amber: #7a5a22;
-    --red: #8b4638;
-    --measure: 760px;
-  }
+  :root { --measure: 760px; }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -39,12 +24,12 @@
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 18px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 16px;
     line-height: 1.72;
     text-rendering: optimizeLegibility;
   }
-  a { color: var(--accent); text-underline-offset: .18em; }
+  a { color: var(--link-color); text-underline-offset: .18em; }
   a:hover { color: var(--accent-hover); }
   a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
   img, svg { max-width: 100%; }
@@ -282,24 +267,7 @@
   }
   .article-footer p { margin: 0; }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      color-scheme: dark;
-      --ink: #e7e7e3;
-      --muted: #afb1ad;
-      --dim: #858985;
-      --paper: #171818;
-      --surface: #202222;
-      --surface-2: #292b2b;
-      --line: #3b3e3e;
-      --accent: #8fb9dc;
-      --accent-hover: #b8d3e9;
-      --accent-soft: #24313c;
-      --cyan: #81b9bd;
-      --amber: #d4b477;
-      --red: #d69484;
-    }
-  }
+
 
   @media (max-width: 900px) {
     .article-grid { display: block; width: min(var(--measure), calc(100% - 40px)); }
