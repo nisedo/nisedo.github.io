@@ -12,8 +12,8 @@
     <title>nisedo</title>
 
     <link rel="stylesheet" href="theme.css?v=uniform-b-1" />
-    <link rel="stylesheet" href="command.css?v=scroll-layout-1" />
-    <script src="command.js?v=writing-features-1" defer></script>
+    <link rel="stylesheet" href="command.css?v=scroll-fade-1" />
+    <script src="command.js?v=scroll-fade-1" defer></script>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -223,7 +223,6 @@
 
       </div>
       <div class="command-area">
-        <button class="scroll-hint" type="button" aria-label="Scroll down to see more content" hidden>↓ more below</button>
         <form class="command-box" autocomplete="off">
           <label class="sr-only" for="command">Navigate with a slash command</label>
           <div class="command-input">
@@ -236,6 +235,7 @@
         <p class="command-error" role="status" hidden></p>
       </div>
     </main>
+    <div class="scroll-fade" aria-hidden="true" hidden></div>
     <nav class="social-links site-socials" aria-label="Social links"><a href="https://x.com/nisedo" aria-label="X">
           <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
             <path

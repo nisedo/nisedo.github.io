@@ -16,10 +16,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .portrait { width: 66px; height: 66px; border-radius: 50%; }
 .wordmark { display: block; width: 264px; height: 56px; color: var(--ink); }
 .command-area { position: absolute; width: min(640px, calc(100% - 48px)); left: 50%; top: calc(50% + 8px); transform: translateX(-50%); z-index: 6; }
-.scroll-hint { position: absolute; bottom: calc(100% + 12px); left: 50%; transform: translateX(-50%); padding: 2px 8px; border: 0; background: transparent; color: var(--muted); font-size: 12px; white-space: nowrap; }
-.scroll-hint:hover { color: var(--ink); }
-.scroll-hint, .scroll-hint:hover, .scroll-hint:focus-visible, .scroll-hint:active { background: transparent; background-image: none; box-shadow: none; }
-body:not(.is-page) .scroll-hint { display: none; }
+/* A decorative edge, outside the scroller so it never adds scrollable space. */
+.scroll-fade { position: fixed; z-index: 4; height: 52px; pointer-events: none; background: linear-gradient(to bottom, transparent, var(--bg)); }
+body:not(.is-page) .scroll-fade, body.keyboard-open .scroll-fade { display: none; }
 .command-box { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: var(--surface); border-left: 2px solid var(--accent); }
 .command-input { position: relative; flex: 1; min-width: 0; overflow: hidden; }
 #command { display: block; width: 100%; height: 29px; padding: 0; border: 0; border-radius: 0; outline: 0; background: transparent; color: var(--ink); caret-color: transparent; }
@@ -32,7 +31,6 @@ body:not(.is-page) .scroll-hint { display: none; }
 .submit-command:hover { color: var(--accent); }
 .command-error { position: absolute; top: calc(100% + 2px); left: 0; right: 0; color: var(--error); margin: 0; max-height: 48px; overflow-y: auto; overscroll-behavior: none; overflow-wrap: anywhere; }
 body.is-page .command-error, body.keyboard-open .command-error { top: auto; bottom: calc(100% + 10px); padding: 6px 8px; max-height: 72px; background: var(--bg); }
-.command-area:has(.command-error:not([hidden])) .scroll-hint { visibility: hidden; }
 .command-menu { position: absolute; left: 0; right: 0; bottom: calc(100% + 10px); max-height: var(--command-menu-height, min(360px, 42vh)); overflow-y: auto; overscroll-behavior: none; padding: 6px; border: 1px solid var(--menu-border); background: var(--menu); box-shadow: 0 6px 24px #00000008; z-index: 5; }
 .command-option { display: flex; width: 100%; gap: 20px; padding: 8px 12px; text-align: left; border: 0; background: transparent; color: var(--ink); }
 .command-option[aria-selected="true"] { background: var(--selected); }
@@ -102,7 +100,6 @@ body.is-page .command-area { position: fixed; width: min(960px, calc(100% - 48px
   body.keyboard-open:not(.is-page) .home-brand { top: calc(var(--keyboard-top) + 70px); }
   body.keyboard-open:not(.is-page) .site-socials { top: calc(var(--keyboard-top) + 28px); }
   body.keyboard-hide-brand .home-brand { display: none; }
-  body.keyboard-open .scroll-hint { display: none; }
 }
 @media (max-width: 600px) {
   .brand-identity { gap: 14px; }

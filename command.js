@@ -15,7 +15,8 @@
   const menu = document.querySelector('#commands');
   const error = document.querySelector('.command-error');
   const main = document.querySelector('main');
-  const scrollHint = document.querySelector('.scroll-hint');
+  const pageContent = document.querySelector('.page-content');
+  const scrollFade = document.querySelector('.scroll-fade');
   const commandArea = document.querySelector('.command-area');
   const commandBox = document.querySelector('.command-box');
   const mobileInput = window.matchMedia('(max-width: 600px), (hover: none) and (pointer: coarse)');
@@ -91,13 +92,15 @@
     }, 100);
   }
 
-  function updateScrollHint() {
+  function updateScrollFade() {
     const section = document.querySelector('.content-section:not([hidden])');
-    if (!document.body.classList.contains('is-page') || !section) {
-      scrollHint.hidden = true;
+    const remaining = main.scrollHeight - main.clientHeight - main.scrollTop;
+    if (!document.body.classList.contains('is-page') || !section || remaining <= 2) {
+      scrollFade.hidden = true;
       return;
     }
     const viewportBottom = main.getBoundingClientRect().top + main.clientHeight;
+    // Ignore trailing line-box space: the fade signals unread content, not padding.
     const textNodes = document.createTreeWalker(section, NodeFilter.SHOW_TEXT);
     const range = document.createRange();
     let contentBottom = 0;
@@ -112,7 +115,15 @@
       const rect = element.getBoundingClientRect();
       if (rect.height) contentBottom = Math.max(contentBottom, rect.bottom);
     });
-    scrollHint.hidden = contentBottom <= viewportBottom + 2;
+    scrollFade.hidden = contentBottom <= viewportBottom + 2;
+    if (!scrollFade.hidden) {
+      const contentRect = pageContent.getBoundingClientRect();
+      const height = Math.min(52, main.clientHeight);
+      scrollFade.style.left = `${contentRect.left}px`;
+      scrollFade.style.width = `${contentRect.width}px`;
+      scrollFade.style.top = `${viewportBottom - height}px`;
+      scrollFade.style.height = `${height}px`;
+    }
   }
 
   function updateCaret() {
@@ -219,20 +230,14 @@
     document.querySelector('main').scrollTop = 0;
     if (section) document.querySelector(`[data-section="${section}"]`).focus({ preventScroll: true });
     else input.focus({ preventScroll: true });
-    updateScrollHint();
+    updateScrollFade();
     updateCommandLayout();
   }
 
-  main.addEventListener('scroll', updateScrollHint, { passive: true });
-  const contentResizeObserver = new ResizeObserver(updateScrollHint);
+  main.addEventListener('scroll', updateScrollFade, { passive: true });
+  const contentResizeObserver = new ResizeObserver(updateScrollFade);
   contentResizeObserver.observe(main);
-  contentResizeObserver.observe(document.querySelector('.page-content'));
-  scrollHint.addEventListener('click', () => {
-    main.scrollBy({
-      top: main.clientHeight,
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
-    });
-  });
+  contentResizeObserver.observe(pageContent);
 
   input.addEventListener('input', () => { selected = 0; renderMenu(); });
   commandBox.addEventListener('click', event => {
