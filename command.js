@@ -6,7 +6,7 @@
     { command: '/talks', section: 'talks', label: 'Talks, podcasts & webinars' },
     { command: '/tools', section: 'tools-open-source', label: 'Tools & open source' },
     { command: '/writings', section: 'writing', label: 'Writing & Features' },
-    { command: '/home', section: null, label: 'Back to the start' },
+    { command: '/home', section: null, label: 'Back to root' },
   ];
   const commands = pages;
   const aliases = { '/writing': '/writings', '/audit-portfolio': '/audits', '/bug-bounties': '/bounties', '/tools-open-source': '/tools', '/': '/home' };
