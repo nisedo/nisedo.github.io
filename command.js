@@ -5,7 +5,7 @@
     { command: '/bounties', section: 'bug-bounties', label: 'Bug bounties' },
     { command: '/talks', section: 'talks', label: 'Talks, podcasts & webinars' },
     { command: '/tools', section: 'tools-open-source', label: 'Tools & open source' },
-    { command: '/writings', section: 'writing', label: 'Articles & writing' },
+    { command: '/writings', section: 'writing', label: 'Writing & Features' },
     { command: '/home', section: null, label: 'Back to the start' },
   ];
   const commands = pages;
