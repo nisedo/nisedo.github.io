@@ -87,7 +87,7 @@ body.is-page .command-error, body.keyboard-open .command-error { top: auto; bott
 .tool-logo { width: 14px; height: 17px; vertical-align: middle; margin-right: 6px; }
 body.is-page .home-brand { display: none; }
 body.is-page main { margin-top: 98px; height: calc(100dvh - 250px); overflow-y: auto; overscroll-behavior: none; }
-body.is-page .page-content { margin-top: 12px; margin-bottom: 32px; }
+body.is-page .page-content { margin-top: 12px; margin-bottom: 0; }
 body.is-page .command-area { position: fixed; width: min(960px, calc(100% - 48px)); top: auto; bottom: 42px; }
 @media (max-width: 600px), (hover: none) and (pointer: coarse) {
   /* iOS zooms small inputs on focus. Keep the input and block cursor in sync. */
@@ -141,3 +141,8 @@ body.is-page .command-area { position: fixed; width: min(960px, calc(100% - 48px
   .item-title { font-size: 15px; }
   .item-context { font-size: 12px; }
 }
+
+/* The fixed command area already separates content from the prompt. Do not
+   create a scroll range solely from space after the last visible content. */
+.content-section > :last-child { margin-bottom: 0; }
+.content-section > .entry-group:last-child > .entry-list > .entry-row:last-child { padding-bottom: 0; }
