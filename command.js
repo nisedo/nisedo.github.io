@@ -10,7 +10,6 @@
   const links = Array.from(dock.querySelectorAll('.dock-link'));
   const homeLink = links[0];
   const header = document.querySelector('.page-header');
-  const breadcrumb = document.querySelector('.breadcrumb');
   const main = document.querySelector('main');
   const pageContent = document.querySelector('.page-content');
   const sections = Array.from(pageContent.querySelectorAll('.content-section'));
@@ -63,7 +62,6 @@
       if (link === current) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');
     }
-    breadcrumb.textContent = activeSection ? ` / ${canonical.slice(1)}` : '';
     document.title = activeSection ? `${current.getAttribute('aria-label')} — nisedo` : 'nisedo';
     main.scrollTop = 0;
     if (moveFocus) (activeSection || homeLink).focus({ preventScroll: true });

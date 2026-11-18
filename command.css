@@ -18,7 +18,6 @@ body:not(.is-page) .scroll-fade { display: none; }
 .page-header { position: absolute; top: 30px; left: 32px; right: 32px; display: flex; justify-content: space-between; align-items: center; }
 .small-brand { display: flex; align-items: center; gap: 12px; font-size: 16px; }
 .small-brand img { width: 34px; height: 34px; border-radius: 50%; }
-.breadcrumb { color: var(--muted); }
 .site-socials { position: fixed; top: 36px; right: 32px; z-index: 5; }
 .social-links { display: flex; align-items: center; gap: 18px; }
 .social-icon { display: block; width: 23px; height: 23px; fill: var(--muted); }
@@ -76,7 +75,6 @@ body.is-page .page-content { margin-top: 12px; margin-bottom: 0; padding-bottom:
   .page-header { left: 20px; right: 119px; top: 22px; }
   .small-brand { font-size: 14px; gap: 10px; min-width: 0; max-width: 100%; }
   .small-brand img { width: 32px; height: 32px; flex-shrink: 0; }
-  .breadcrumb { font-size: 13px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .site-socials { top: 28px; right: 20px; }
   .social-links { gap: 12px; }
   .page-content { width: calc(100% - 40px); margin-top: 100px; }
