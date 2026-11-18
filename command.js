@@ -65,6 +65,7 @@
     const available = commandArea.getBoundingClientRect().top - visibleTop - 22;
     menu.style.setProperty('--command-menu-height', `${Math.max(0, Math.min(360, available))}px`);
     keepSelectedVisible();
+    updateScrollFade();
   }
 
   function scheduleCommandLayout() {
@@ -99,7 +100,9 @@
       scrollFade.hidden = true;
       return;
     }
-    const viewportBottom = main.getBoundingClientRect().top + main.clientHeight;
+    const promptTop = commandBox.getBoundingClientRect().top;
+    const scrollBottom = main.getBoundingClientRect().bottom;
+    const viewportBottom = Math.min(scrollBottom, promptTop - 6);
     // Ignore trailing line-box space: the fade signals unread content, not padding.
     const textNodes = document.createTreeWalker(section, NodeFilter.SHOW_TEXT);
     const range = document.createRange();
@@ -122,7 +125,7 @@
       scrollFade.style.left = `${contentRect.left}px`;
       scrollFade.style.width = `${contentRect.width}px`;
       scrollFade.style.top = `${viewportBottom - height}px`;
-      scrollFade.style.height = `${height}px`;
+      scrollFade.style.height = `${height + scrollBottom - viewportBottom}px`;
     }
   }
 
