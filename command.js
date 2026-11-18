@@ -5,6 +5,8 @@
     '/audit-portfolio': '/audits',
     '/bug-bounties': '/bounties',
     '/tools-open-source': '/tools',
+    '/talks/podcasts-webinars': '/podcasts',
+    '/writings/featured-in': '/features',
   };
   const dock = document.querySelector('.site-dock');
   const links = Array.from(dock.querySelectorAll('.dock-link'));
@@ -15,6 +17,14 @@
   const sections = Array.from(pageContent.querySelectorAll('.content-section'));
   const scrollFade = document.querySelector('.scroll-fade');
   let activeSection;
+
+  dock.addEventListener('click', event => {
+    const link = event.target.closest('.dock-link');
+    if (link && link.hash === location.hash && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+      event.preventDefault();
+      renderPage(true);
+    }
+  });
 
   function updateScrollFade() {
     if (!activeSection || main.scrollHeight - main.clientHeight - main.scrollTop <= 2) {
