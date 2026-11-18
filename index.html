@@ -12,8 +12,8 @@
     <title>nisedo</title>
 
     <link rel="stylesheet" href="theme.css?v=uniform-b-1" />
-    <link rel="stylesheet" href="command.css?v=compact-prompt-1" />
-    <script src="command.js?v=compact-prompt-1" defer></script>
+    <link rel="stylesheet" href="command.css?v=site-dock-1" />
+    <script src="command.js?v=site-dock-1" defer></script>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -39,6 +39,36 @@
       <a class="small-brand" href="#/" aria-label="nisedo home"><img src="assets/favicons/android-chrome-192x192.png" alt="" width="28" height="28">nisedo<span class="breadcrumb"></span></a>
 
     </header>
+    <nav class="site-dock" aria-label="Site sections">
+      <a class="dock-link" href="#/" data-dock-section="" aria-label="Home">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10H3zM9 20v-6h6v6"/></svg>
+        <span class="dock-tooltip" aria-hidden="true">Home</span>
+      </a>
+      <a class="dock-link" href="#/about" data-dock-section="about" aria-label="About">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3.5"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>
+        <span class="dock-tooltip" aria-hidden="true">About</span>
+      </a>
+      <a class="dock-link" href="#/audits" data-dock-section="audit-portfolio" aria-label="Audit Portfolio">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.4 2.8 7.5 7.5 9.5 4.7-2 7.5-5.1 7.5-9.5V6z"/><path d="m8.5 12 2.3 2.3 4.7-4.7"/></svg>
+        <span class="dock-tooltip" aria-hidden="true">Audit Portfolio</span>
+      </a>
+      <a class="dock-link" href="#/bounties" data-dock-section="bug-bounties" aria-label="Bug Bounties">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="14" rx="5"/><path d="M9 7 7 4m8 3 2-3M12 11v10M7 11 3 9m4 6H3m4 3-3 3m13-10 4-2m-4 6h4m-4 3 3 3"/></svg>
+        <span class="dock-tooltip" aria-hidden="true">Bug Bounties</span>
+      </a>
+      <a class="dock-link" href="#/talks" data-dock-section="talks" aria-label="Talks, Podcasts &amp; Webinars">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11v1a7 7 0 0 0 14 0v-1m-7 8v3m-3 0h6"/></svg>
+        <span class="dock-tooltip" aria-hidden="true">Talks, Podcasts &amp; Webinars</span>
+      </a>
+      <a class="dock-link" href="#/writings" data-dock-section="writing" aria-label="Writing &amp; Features">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 4H5v16h14v-8.2M8 15l.8-3.6 7.7-7.7a1.8 1.8 0 0 1 2.6 2.6l-7.7 7.7z"/></svg>
+        <span class="dock-tooltip" aria-hidden="true">Writing &amp; Features</span>
+      </a>
+      <a class="dock-link" href="#/tools" data-dock-section="tools-open-source" aria-label="Tools &amp; Open Source">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-5 6 5 6m8-12 5 6-5 6M14 4l-4 16"/></svg>
+        <span class="dock-tooltip" aria-hidden="true">Tools &amp; Open Source</span>
+      </a>
+    </nav>
     <main>
       <div class="home-brand">
         <div class="brand-identity">
@@ -229,18 +259,6 @@
 
 
       </div>
-      <div class="command-area">
-        <form class="command-box" autocomplete="off">
-          <label class="sr-only" for="command">Navigate with a slash command</label>
-          <div class="command-input">
-            <input id="command" type="text" placeholder="Type a command... /command" spellcheck="false" autocapitalize="off" aria-controls="commands" aria-expanded="false" role="combobox" aria-autocomplete="list">
-            <span class="block-caret" aria-hidden="true">T</span>
-          </div>
-          <button class="submit-command" type="submit" aria-label="Run command">↵</button>
-        </form>
-        <div id="commands" class="command-menu" role="listbox" aria-label="Commands" hidden></div>
-        <p class="command-error" role="status" hidden></p>
-      </div>
     </main>
     <div class="scroll-fade" aria-hidden="true" hidden></div>
     <nav class="social-links site-socials" aria-label="Social links"><a href="https://x.com/nisedo" aria-label="X">
@@ -266,9 +284,9 @@
         </a></nav>
     <noscript><style>
       html, body { position: static; height: auto; overflow: visible; overscroll-behavior: auto; }
-      .home-brand, .command-area { display: none; }
+      .home-brand, .site-dock { display: none; }
       .page-header[hidden], .page-content[hidden], .content-section[hidden] { display: block !important; }
       .content-section { margin-bottom: 60px; }
-    </style><p>All pages are listed below. Enable JavaScript to use slash commands.</p></noscript>
+    </style><p>All sections are listed below.</p></noscript>
   </body>
 </html>

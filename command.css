@@ -2,40 +2,19 @@
 [hidden] { display: none !important; }
 html, body { width: 100%; height: 100%; overflow: hidden; overscroll-behavior: none; }
 body { position: fixed; inset: 0; margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.6 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
-button, input { font: inherit; }
 a { color: inherit; text-decoration: none; }
 a:hover { color: var(--accent); }
-button { cursor: pointer; }
-button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
-.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.home-brand { position: absolute; top: calc(50% - 160px); left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 28px; width: min(640px, calc(100% - 32px)); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.home-brand { position: absolute; top: 46%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 28px; width: min(640px, calc(100% - 32px)); }
 .brand-identity { display: flex; align-items: center; gap: 22px; }
 .home-role { margin: 0; color: var(--secondary); text-align: center; font-size: 13px; }
 .home-role a { color: var(--ink); }
 .home-brand h1 { margin: 0; line-height: 0; }
 .portrait { width: 66px; height: 66px; border-radius: 50%; }
 .wordmark { display: block; width: 264px; height: 56px; color: var(--ink); }
-.command-area { position: absolute; width: min(640px, calc(100% - 48px)); left: 50%; top: calc(50% + 8px); transform: translateX(-50%); z-index: 6; }
+body:not(.is-page) .scroll-fade { display: none; }
 /* A decorative edge, outside the scroller so it never adds scrollable space. */
 .scroll-fade { position: fixed; z-index: 4; height: 52px; pointer-events: none; background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--bg) 72%, transparent) 55%, color-mix(in srgb, var(--bg) 55%, transparent)); }
-body:not(.is-page) .scroll-fade, body.keyboard-open .scroll-fade { display: none; }
-.command-box { display: flex; align-items: center; gap: 12px; padding: 6px 12px; background: var(--surface); border: 1px solid var(--line); }
-.command-input { position: relative; flex: 1; min-width: 0; overflow: hidden; }
-#command { display: block; width: 100%; height: 29px; padding: 0; border: 0; border-radius: 0; outline: 0; background: transparent; color: var(--ink); caret-color: transparent; }
-.block-caret { position: absolute; top: 3px; left: 0; width: 1ch; height: 23px; line-height: 23px; background: var(--ink); color: var(--bg); pointer-events: none; animation: caret-blink 1.1s step-end infinite; }
-@keyframes caret-blink { 50% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .block-caret { animation: none; } }
-#command::placeholder { color: var(--muted); opacity: 1; }
-.command-box:focus-within { border-color: var(--accent); }
-.submit-command { margin-left: auto; border: 0; padding: 0 2px; color: var(--muted); background: transparent; font-size: 20px; line-height: 1; }
-.submit-command:hover { color: var(--accent); }
-.command-error { position: absolute; top: calc(100% + 2px); left: 0; right: 0; color: var(--error); margin: 0; max-height: 48px; overflow-y: auto; overscroll-behavior: none; overflow-wrap: anywhere; }
-body.is-page .command-error, body.keyboard-open .command-error { top: auto; bottom: calc(100% + 10px); padding: 6px 8px; max-height: 72px; background: var(--bg); }
-.command-menu { position: absolute; left: 0; right: 0; bottom: calc(100% + 10px); max-height: var(--command-menu-height, min(360px, 42vh)); overflow-y: auto; overscroll-behavior: none; padding: 6px; border: 1px solid var(--menu-border); background: var(--menu); box-shadow: 0 6px 24px #00000008; z-index: 5; }
-.command-option { display: flex; width: 100%; gap: 20px; padding: 8px 12px; text-align: left; border: 0; background: transparent; color: var(--ink); }
-.command-option[aria-selected="true"] { background: var(--selected); }
-.command-option span:first-child { width: 120px; flex-shrink: 0; color: var(--command-color); }
-.command-option span:last-child { color: var(--secondary); }
 .page-header { position: absolute; top: 30px; left: 32px; right: 32px; display: flex; justify-content: space-between; align-items: center; }
 .small-brand { display: flex; align-items: center; gap: 12px; font-size: 16px; }
 .small-brand img { width: 34px; height: 34px; border-radius: 50%; }
@@ -86,26 +65,14 @@ body.is-page .command-error, body.keyboard-open .command-error { top: auto; bott
 body.is-page .home-brand { display: none; }
 body.is-page main { margin-top: 98px; height: calc(100dvh - 98px); overflow-y: auto; scroll-padding-bottom: 100px; overscroll-behavior: none; }
 body.is-page .page-content { margin-top: 12px; margin-bottom: 0; padding-bottom: 100px; }
-body.is-page .command-area { position: fixed; width: min(960px, calc(100% - 48px)); top: auto; bottom: max(12px, env(safe-area-inset-bottom)); }
 @media (max-width: 600px), (hover: none) and (pointer: coarse) {
-  /* iOS zooms small inputs on focus. Keep the input and block cursor in sync. */
-  .command-input { font-size: 16px; }
   body.is-page main { margin-top: 82px; height: calc(100dvh - 82px); }
-  /* Let the home header move with the page when the keyboard pans it. */
   body:not(.is-page) .site-socials { position: absolute; }
-  body:not(.is-page) .home-brand { top: max(80px, calc(50% - 160px)); }
-  body:not(.is-page) .command-area { top: max(248px, calc(50% + 8px)); }
-  body.keyboard-open .command-area { position: absolute; top: var(--command-top); bottom: auto; }
-  body.keyboard-open:not(.is-page) .home-brand { top: calc(var(--keyboard-top) + 70px); }
-  body.keyboard-open:not(.is-page) .site-socials { top: calc(var(--keyboard-top) + 28px); }
-  body.keyboard-hide-brand .home-brand { display: none; }
 }
 @media (max-width: 600px) {
   .brand-identity { gap: 14px; }
   .portrait { width: 48px; height: 48px; }
   .wordmark { width: calc(41px * 33 / 7); height: 41px; }
-  .command-area { width: calc(100% - 32px); }
-  body.is-page .command-area { width: calc(100% - 40px); }
   .page-header { left: 20px; right: 119px; top: 22px; }
   .small-brand { font-size: 14px; gap: 10px; min-width: 0; max-width: 100%; }
   .small-brand img { width: 32px; height: 32px; flex-shrink: 0; }
@@ -116,8 +83,6 @@ body.is-page .command-area { position: fixed; width: min(960px, calc(100% - 48px
   .skills-row { grid-template-columns: 1fr; gap: 6px; }
   .content-section .entry-row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
   .content-section { overflow-x: auto; }
-  .command-option { gap: 8px; font-size: 12px; }
-  .command-option span:first-child { width: 100px; }
 }
 
 /* Shared entry hierarchy for talks, writing, audits, bounties and tools. */
@@ -137,12 +102,96 @@ body.is-page .command-area { position: fixed; width: min(960px, calc(100% - 48px
   .item-context { font-size: 12px; }
 }
 
-/* The fixed command area already separates content from the prompt. Do not
-   create a scroll range solely from space after the last visible content. */
+/* The page padding clears the dock at the end of the scroll range. */
 .content-section > :last-child { margin-bottom: 0; }
 .content-section > .entry-group:last-child > .entry-list > .entry-row:last-child { padding-bottom: 0; }
 
-body.is-page .command-box {
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
+.site-dock {
+  position: fixed;
+  z-index: 6;
+  left: 50%;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+  width: min(450px, calc(100% - 18px));
+  padding: 6px;
+  border: 1px solid color-mix(in srgb, var(--ink) 17%, transparent);
+  border-radius: 32px;
+  background: color-mix(in srgb, var(--surface) 79%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(135%);
+  backdrop-filter: blur(16px) saturate(135%);
+  box-shadow: inset 0 1px 0 #ffffff24, 0 6px 22px #00000016;
 }
-body.keyboard-open.is-page .command-box { background: var(--bg); }
+.dock-link {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  border-radius: 17px;
+  color: var(--ink);
+}
+.dock-link svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.dock-link:hover,
+.dock-link:focus-visible {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--ink);
+}
+.dock-link:focus-visible { outline-offset: -2px; }
+.dock-link[aria-current="page"] {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  color: var(--link-color);
+}
+.dock-link[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.dock-tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  z-index: 1;
+  width: max-content;
+  max-width: min(160px, 45vw);
+  transform: translateX(-50%);
+  visibility: hidden;
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--bg);
+  box-shadow: 0 3px 12px #00000015;
+  color: var(--ink);
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.dock-tooltip::after {
+  content: "";
+  position: absolute;
+  inset: 100% 0 auto;
+  height: 12px;
+}
+.dock-link:first-child .dock-tooltip,
+.dock-link:nth-child(2) .dock-tooltip { left: 0; transform: none; }
+.dock-link:nth-last-child(-n + 2) .dock-tooltip { left: auto; right: 0; transform: none; }
+.dock-link:focus-visible .dock-tooltip { visibility: visible; }
+@media (hover: hover) {
+  .dock-link:hover .dock-tooltip { visibility: visible; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .site-dock { background: var(--surface); }
+}
