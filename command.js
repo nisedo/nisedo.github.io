@@ -17,6 +17,75 @@
   const sections = Array.from(pageContent.querySelectorAll('.content-section'));
   const scrollFade = document.querySelector('.scroll-fade');
   let activeSection;
+  let activeTrigger;
+  let activeTooltip;
+  let dismissTimer;
+
+  function hideTooltip() {
+    clearTimeout(dismissTimer);
+    if (activeTooltip) activeTooltip.hidden = true;
+    activeTrigger = undefined;
+    activeTooltip = undefined;
+  }
+
+  function showTooltip(trigger, tooltip) {
+    hideTooltip();
+    activeTrigger = trigger;
+    activeTooltip = tooltip;
+    tooltip.hidden = false;
+    positionTooltip();
+  }
+
+  function positionTooltip() {
+    const rect = activeTrigger.getBoundingClientRect();
+    const gutter = 12;
+    const gap = 8;
+    const width = activeTooltip.offsetWidth;
+    const height = activeTooltip.offsetHeight;
+    const left = rect.left + (rect.width - width) / 2;
+    const top = rect.top - gap - height;
+    const bottomLimit = dock.getBoundingClientRect().top - gutter;
+    activeTooltip.style.left = `${Math.max(gutter, Math.min(left, document.documentElement.clientWidth - width - gutter))}px`;
+    activeTooltip.style.top = `${top >= gutter ? top : Math.max(gutter, Math.min(rect.bottom + gap, bottomLimit - height))}px`;
+  }
+
+  for (const [index, trigger] of [...main.querySelectorAll('[data-context]')].entries()) {
+    const tooltip = document.createElement('div');
+    tooltip.id = `context-tooltip-${index + 1}`;
+    tooltip.className = 'tooltip context-tooltip';
+    tooltip.setAttribute('role', 'tooltip');
+    tooltip.textContent = trigger.dataset.context;
+    tooltip.hidden = true;
+    document.body.append(tooltip);
+    trigger.setAttribute('aria-describedby', tooltip.id);
+    if (!trigger.matches('a[href]')) trigger.tabIndex = 0;
+
+    function scheduleDismiss() {
+      if (activeTooltip !== tooltip) return;
+      clearTimeout(dismissTimer);
+      dismissTimer = setTimeout(() => {
+        if (!trigger.matches(':hover, :focus-visible') && !tooltip.matches(':hover')) hideTooltip();
+      }, 160);
+    }
+
+    trigger.addEventListener('pointerenter', event => {
+      if (event.pointerType === 'mouse' || (event.pointerType === 'pen' && !event.buttons)) {
+        showTooltip(trigger, tooltip);
+      }
+    });
+    trigger.addEventListener('pointerleave', scheduleDismiss);
+    trigger.addEventListener('focus', () => {
+      if (trigger.matches(':focus-visible')) showTooltip(trigger, tooltip);
+    });
+    trigger.addEventListener('blur', scheduleDismiss);
+    tooltip.addEventListener('pointerenter', () => clearTimeout(dismissTimer));
+    tooltip.addEventListener('pointerleave', scheduleDismiss);
+  }
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') hideTooltip();
+  });
+  window.addEventListener('resize', hideTooltip);
 
   dock.addEventListener('click', event => {
     const link = event.target.closest('.dock-link');
@@ -59,6 +128,7 @@
   }
 
   function renderPage(moveFocus = false) {
+    hideTooltip();
     const route = location.hash.slice(1).replace(/^\/?/, '/');
     const canonical = aliases[route] || route;
     const current = links.find(link => link.hash === `#${canonical}`) || homeLink;
@@ -78,7 +148,19 @@
     updateScrollFade();
   }
 
-  main.addEventListener('scroll', updateScrollFade, { passive: true });
+  main.addEventListener('scroll', () => {
+    if (activeTrigger?.matches(':focus-visible')) {
+      const rect = activeTrigger.getBoundingClientRect();
+      if (rect.bottom > main.getBoundingClientRect().top && rect.top < dock.getBoundingClientRect().top) {
+        positionTooltip();
+      } else {
+        hideTooltip();
+      }
+    } else {
+      hideTooltip();
+    }
+    updateScrollFade();
+  }, { passive: true });
   const observer = new ResizeObserver(updateScrollFade);
   observer.observe(main);
   observer.observe(pageContent);

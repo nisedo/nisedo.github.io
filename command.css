@@ -165,15 +165,8 @@ body.is-page .page-content { margin-top: 12px; margin-bottom: 0; padding-bottom:
   border-radius: 50%;
   background: currentColor;
 }
-.dock-tooltip {
-  position: absolute;
-  bottom: calc(100% + 12px);
-  left: 50%;
-  z-index: 1;
+.tooltip {
   width: max-content;
-  max-width: min(160px, 45vw);
-  transform: translateX(-50%);
-  visibility: hidden;
   padding: 5px 9px;
   border: 1px solid var(--line);
   border-radius: 9px;
@@ -184,6 +177,22 @@ body.is-page .page-content { margin-top: 12px; margin-bottom: 0; padding-bottom:
   font-size: 12px;
   line-height: 1.4;
 }
+.dock-tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  z-index: 1;
+  max-width: min(160px, 45vw);
+  transform: translateX(-50%);
+  visibility: hidden;
+}
+.context-tooltip {
+  position: fixed;
+  z-index: 7;
+  max-width: min(320px, calc(100vw - 24px));
+}
+span[data-context][tabindex] { cursor: help; }
+.context-tooltip[hidden] { display: none; }
 .dock-tooltip::after {
   content: "";
   position: absolute;
