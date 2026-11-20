@@ -461,7 +461,7 @@
           <figcaption><strong>The antennas surround the case.</strong> The marked paths show the cellular antennas, shared Wi‑Fi, Bluetooth, GPS and UWB paths, NFC, and the charging coil. Source: TechInsights report DDT-2511-814.</figcaption>
         </figure>
 
-        <p>The report confirms a 60&nbsp;GHz transceiver and antenna but I left their role open because I found no source describing their purpose or protocol or how a session begins and who can access it.</p>
+        <p>The teardown identifies a 60&nbsp;GHz transceiver and antenna. The FCC filing for A3337 describes a 60.5&nbsp;GHz data link activated by a proprietary Wireless Serial Dock, with a magnetic fixture holding the Watch in position. The protocol and its authentication requirements remain open questions.</p>
 
         <p>Reaching the main board requires opening the Watch from the display side and removing screws and covers because adhesive holds the board in place. The sensor board connects inside the case while glue holds the charging coil to the rear glass. Without a debug interface identified in the report I may have to open the case to investigate further and risk changing the electrical or mechanical conditions I want to study.</p>
       </section>
@@ -694,7 +694,7 @@
           <li>The exact S10 secure-boot flow, debug-disable state, kernel integrity design, sandbox profiles, and entitlement map.</li>
           <li>The Series 11 DFU, factory, service, and post-failure recovery protocols.</li>
           <li>The 5G modem firmware, application-processor interface, memory protections, reset model, and update trust chain.</li>
-          <li>The purpose and reachable protocol of the 60&nbsp;GHz transceiver.</li>
+          <li>The protocol, authentication requirements, and capabilities of the 60.5&nbsp;GHz Wireless Serial Dock interface.</li>
           <li>The security of second-generation UWB on Series 11.</li>
           <li>The file-level Data Protection classes and a repeatable way to acquire the modern filesystem.</li>
         </ul>
@@ -711,6 +711,7 @@
       <section id="references">
         <h2><span class="section-number">Sources</span>Primary references</h2>
         <ol class="references">
+          <li><strong>Element Materials Technology for Apple.</strong> <a href="https://device.report/m/331656be01f5be29b5698be74f211716f45026712f0d91910ba3cc402f20d320.pdf#page=4" target="_blank" rel="noopener noreferrer">FCC RF Exposure Evaluation for Apple Watch A3337</a>, report 1C2503270033-16.BCG, 31 July 2025, page 4, section 1.2.</li>
           <li><strong>TechInsights.</strong> <em>Apple Watch Series 11 5G 46mm Deep Dive Teardown</em>, report DDT-2511-814, 17 November 2025.</li>
           <li><strong>Apple.</strong> <a href="https://www.apple.com/apple-watch-series-11/specs/" target="_blank" rel="noopener noreferrer">Apple Watch Series 11 technical specifications</a>.</li>
           <li><strong>Apple Platform Security.</strong> <a href="https://support.apple.com/guide/security/system-security-for-watchos-secc7d85209d/web" target="_blank" rel="noopener noreferrer">System security for watchOS</a>, updated 28 January 2026.</li>
